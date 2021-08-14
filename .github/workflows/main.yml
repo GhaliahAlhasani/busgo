@@ -51,8 +51,3 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-
-
-
-
-0d048a16-0f6d-4d5d-8b59-d0167e200bfe
