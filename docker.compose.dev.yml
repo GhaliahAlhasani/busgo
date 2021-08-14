@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  web:
+    container_name: busgo-container
+    build:
+      context: .
+    ports:
+      - 5005:5005
+    volumes:
+      - ./:/app
+    networks:
+      - network-1
+
+  mysqldb:
+    image: mysql
+    container_name: my-sql-container
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=Hellosql@1
+    volumes:
+      - vol-1:/var/lib/mysql
+      - vol-1_config:/etc/mysql
+    networks:
+      - network-1
+
+volumes:
+  vol-1:
+  vol-1_config:
+
+networks:
+  network-1:
+    name: network-1
+    driver: bridge
